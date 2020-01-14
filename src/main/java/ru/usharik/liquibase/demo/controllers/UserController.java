@@ -76,9 +76,10 @@ public class UserController {
 //        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
 //        
         NativeQuery query = session.createSQLQuery(
-	"EXECUTE [TestBaseForStudy].[dbo].[rep_getUsersByDepAndBirthDay]  :idDep, 7")
+	"EXECUTE [TestBaseForStudy].[dbo].[rep_getUsersByDepAndBirthDay]  :idDep, :days")
             .addEntity(User.class)
-            .setParameter("idDep", depId);
+            .setParameter("idDep", depId)
+            .setParameter("days", daysCount);
         
         list = query.list();
         session.close();
