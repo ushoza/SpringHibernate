@@ -30,7 +30,7 @@ public class User implements Serializable {
     private Date birthday;
     
     @Column(name = "department")
-    private String department;
+    private long department;
 
     public User() {
     }
@@ -67,12 +67,12 @@ public class User implements Serializable {
     public void setBirthDay(Date date) {
         this.birthday = date;
     }
-    public String getDepartment()
+    public long getDepartment()
     {
         return department;
     }
     
-    public void setDepartment(String dep)
+    public void setDepartment(long dep)
     {
         this.department = dep;
     }

@@ -65,14 +65,21 @@ public class UserController {
 //    }
     
     @GetMapping(path = "/user/{depId}/{daysCount}")
-    public List<User> GetUsersByBirthDay(@PathVariable long depId, @PathVariable int daysCount) throws Exception {
-        List<User>  list = null;
+    public List<ru.usharik.liquibase.demo.persist.model.User> GetUsersByBirthDay(@PathVariable long depId, @PathVariable int daysCount) throws Exception {
+        List<ru.usharik.liquibase.demo.persist.model.User>  list = null;
         if(LiquibaseDemoApplication.sessionFactory == null)
             LiquibaseDemoApplication.setUp();
         Session session = LiquibaseDemoApplication.sessionFactory.openSession();
-        String queryStr = "select * from users";
-        NativeQuery query = session.createSQLQuery(queryStr);
-        query.addEntity(User.class);
+        
+//        String queryStr = "SELECT * FROM [TestBaseForStudy].[dbo].[users]";
+//        NativeQuery query = session.createSQLQuery(queryStr);
+//        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
+//        
+        NativeQuery query = session.createSQLQuery(
+	"EXECUTE [TestBaseForStudy].[dbo].[rep_getUsersByDepAndBirthDay]  :idDep, 7")
+            .addEntity(User.class)
+            .setParameter("idDep", depId);
+        
         list = query.list();
         session.close();
         LiquibaseDemoApplication.tearDown();
