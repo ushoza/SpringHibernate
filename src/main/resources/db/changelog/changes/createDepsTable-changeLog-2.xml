@@ -19,7 +19,7 @@
                        
         </createTable>
         <rollback>
-            <dropTable tableName="users"/>
+            <dropTable tableName="departments"/>
         </rollback>
     </changeSet>
 </databaseChangeLog>

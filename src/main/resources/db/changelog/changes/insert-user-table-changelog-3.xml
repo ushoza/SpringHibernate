@@ -12,7 +12,7 @@
             <column name="first_name" value="Иван"/>
             <column name="last_name" value="Иванов"/>
             <column name="department" valueNumeric="11"/>
-            <column name="birthday" value="1995-11-12 00:00:00.000"/>
+            <column name="birthday" value="1995-02-12 00:00:00.000"/>
             
         </insert>
         <insert tableName="users">
@@ -20,7 +20,7 @@
             <column name="first_name" value="Петр"/>
             <column name="last_name" value="Петров"/>
             <column name="department" valueNumeric="111"/>
-            <column name="birthday" value="1994-01-15 00:00:00.000"/>
+            <column name="birthday" value="1994-01-20 00:00:00.000"/>
             
         </insert>
         <rollback>

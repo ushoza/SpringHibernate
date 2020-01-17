@@ -1,0 +1,30 @@
+set @dep = 11;
+set @days = 10;
+
+WITH
+  cteDepsByParent (id, id_parent, NameDep)
+  AS
+  (SELECT id, id_parent, NameDep
+    FROM departments
+    WHERE id = @dep
+
+    UNION ALL
+
+    SELECT e.id, e.id_parent, e.NameDep
+    FROM departments e
+      INNER JOIN cteDepsByParent r
+        ON e.id_parent = r.id
+  )
+
+	select 
+		id,
+		first_name, 
+		last_name, 
+		department 
+		
+	from users where department in (SELECT id FROM cteDepsByParent)
+ 		and (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) < DATEADD('day', @days,CURRENT_DATE) 
+ 		and (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) > CURRENT_DATE
+	
+
+		

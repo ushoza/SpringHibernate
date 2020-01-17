@@ -1,12 +1,23 @@
 -------------------------------------------------------------------------------
 Test set: ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 62.031 s <<< FAILURE! - in ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
-getNextWeekUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 0.422 s  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 66.104 s <<< FAILURE! - in ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
+getNextWeekUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 0.522 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getNextWeekUsers(LiquibaseDemoApplicationTests.java:41)
 
-getNextMonthUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 0.015 s  <<< ERROR!
+getUsersByDepAndBirthDAy(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 51.669 s  <<< ERROR!
+javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not extract ResultSet
+	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getUsersByDepAndBirthDAy(LiquibaseDemoApplicationTests.java:60)
+Caused by: org.hibernate.exception.GenericJDBCException: could not extract ResultSet
+	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getUsersByDepAndBirthDAy(LiquibaseDemoApplicationTests.java:60)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: 
+Метод разрешен только для запросов. Используйте execute или executeUpdate вместо executeQuery
+Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+set @dep = 11; [90002-199]
+	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getUsersByDepAndBirthDAy(LiquibaseDemoApplicationTests.java:60)
+
+getNextMonthUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 0.049 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getNextMonthUsers(LiquibaseDemoApplicationTests.java:54)
 

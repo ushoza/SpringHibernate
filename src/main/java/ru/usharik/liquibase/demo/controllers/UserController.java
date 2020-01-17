@@ -1,5 +1,7 @@
 package ru.usharik.liquibase.demo.controllers;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,8 +13,10 @@ import ru.usharik.liquibase.demo.persist.model.User;
 import ru.usharik.liquibase.demo.persist.repo.UserRepository;
 
 import java.util.List;
+import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.usharik.liquibase.demo.LiquibaseDemoApplication;
 
@@ -69,6 +73,7 @@ public class UserController {
             LiquibaseDemoApplication.setUp();
         Session session = LiquibaseDemoApplication.sessionFactory.openSession();
         
+        
 //        String queryStr = "SELECT * FROM [TestBaseForStudy].[dbo].[users]";
 //        NativeQuery query = session.createSQLQuery(queryStr);
 //        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
@@ -78,12 +83,16 @@ public class UserController {
 //            .addEntity(User.class)
 //            .setParameter("idDep", depId)
 //            .setParameter("days", daysCount);
-
-        String queryStr = "SELECT * FROM users";
+        String filePath = "src\\main\\resources\\db\\UsersWithDepAmdBirthDay.txt";
+        //String filePath = "src\\main\\resources\\db\\all.txt";
+        String queryStr = new String(Files.readAllBytes(Paths.get(filePath)));
+        //String queryStr = "SELECT * FROM users";
+//        NativeQuery query = session.createSQLQuery(queryStr);
+//        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
+//        
         NativeQuery query = session.createSQLQuery(queryStr);
-        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
-        
-        list = query.list();
+        //Query query = session.createQuery(queryStr);
+        list = query.getResultList();
         session.close();
         LiquibaseDemoApplication.tearDown();
         return list;
