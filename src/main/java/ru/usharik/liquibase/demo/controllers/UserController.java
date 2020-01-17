@@ -66,7 +66,7 @@ public class UserController {
         return list;
     }
     
-    public List<User> GetUserByDepAndBirthday(@PathVariable String depId, @PathVariable int daysCount) throws Exception
+    public List<User> GetUserByDepAndBirthday(@PathVariable int depId, @PathVariable int daysCount) throws Exception
     {
         List<ru.usharik.liquibase.demo.persist.model.User>  list = null;
         if(LiquibaseDemoApplication.sessionFactory == null)
@@ -86,13 +86,16 @@ public class UserController {
         String filePath = "src\\main\\resources\\db\\UsersWithDepAmdBirthDay.txt";
         //String filePath = "src\\main\\resources\\db\\all.txt";
         String queryStr = new String(Files.readAllBytes(Paths.get(filePath)));
+        String queryStr1 = queryStr.replace("@dep", Integer.toString(depId));
+        String queryStr2 = queryStr1.replace("@days", Integer.toString(daysCount) );
         //String queryStr = "SELECT * FROM users";
 //        NativeQuery query = session.createSQLQuery(queryStr);
 //        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
 //        
-        NativeQuery query = session.createSQLQuery(queryStr);
-        //Query query = session.createQuery(queryStr);
-        list = query.getResultList();
+        NativeQuery query = session.createSQLQuery(queryStr2);
+       
+        //list = query.getResultList();
+        list = query.list();
         session.close();
         LiquibaseDemoApplication.tearDown();
         return list;

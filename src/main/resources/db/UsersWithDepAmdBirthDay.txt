@@ -1,6 +1,3 @@
-set @dep = 11;
-set @days = 10;
-
 WITH
   cteDepsByParent (id, id_parent, NameDep)
   AS
@@ -20,10 +17,11 @@ WITH
 		id,
 		first_name, 
 		last_name, 
-		department 
+		department,
+                birthday 
 		
 	from users where department in (SELECT id FROM cteDepsByParent)
- 		and (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) < DATEADD('day', @days,CURRENT_DATE) 
+ 		and (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) < DATEADD('day', @days ,CURRENT_DATE) 
  		and (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) > CURRENT_DATE
 	
 

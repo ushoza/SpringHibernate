@@ -57,7 +57,7 @@ public class LiquibaseDemoApplicationTests {
     
     @Test
     public void getUsersByDepAndBirthDAy() throws Exception {
-        List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndBirthday("sale", 30);
+        List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndBirthday(11, 30);
                               
     }
 
