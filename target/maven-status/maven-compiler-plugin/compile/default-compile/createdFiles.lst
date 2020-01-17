@@ -1,4 +1,4 @@
 ru\usharik\liquibase\demo\persist\model\User.class
 ru\usharik\liquibase\demo\controllers\UserController.class
-ru\usharik\liquibase\demo\LiquibaseDemoApplication.class
 ru\usharik\liquibase\demo\persist\repo\UserRepository.class
+ru\usharik\liquibase\demo\LiquibaseDemoApplication.class

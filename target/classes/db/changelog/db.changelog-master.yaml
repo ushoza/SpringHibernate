@@ -23,32 +23,10 @@ databaseChangeLog:
                   type: varchar(50)
               - column:
                   name: department
-                  type: bigint
+                  type: varchar(50)
               - column:
                   name: birthday
                   type: datetime
-  - changeSet:
-      id: 3
-      author: Nataliya Pyatak
-      changes:
-        - createTable:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              
-              - column:
-                  name: id_parent
-                  type: BIGINT
-              - column:
-                  name: NameDep
-                  type: varchar(50)
-              
 
   - changeSet:
       id: 2
@@ -66,7 +44,7 @@ databaseChangeLog:
                   value: "Pyatak"
               - column:
                   name: department
-                  value: 111
+                  value: "Tech"
               - column:
                   name: birthday
                   valueDate: "1982-11-15T00:00:00"
@@ -81,7 +59,7 @@ databaseChangeLog:
                   value: "Ivanov"
               - column:
                   name: department
-                  value: 112
+                  value: "Sale"
               - column:
                   name: birthday
                   valueDate: "1994-12-22T13:14:15"
@@ -96,7 +74,7 @@ databaseChangeLog:
                   value: "Rubbit"
               - column:
                   name: department
-                  value: 1121
+                  value: "Sale"
               - column:
                   name: birthday
                   valueDate: "1994-12-03T13:14:15"
@@ -111,113 +89,11 @@ databaseChangeLog:
                   value: "Rubbit"
               - column:
                   name: department
-                  value: 11
+                  value: "Tech"
               - column:
                   name: birthday
                   valueDate: "1994-11-27T13:14:15"
       rollback:
         - delete:
             tableName: users
-            where: first_name in ('Ivan', 'Nataliya', 'Bob') and last_name in('Ivanov', 'Pyatak', 'Rubbit')
-            
-  - changeSet:
-      id: 4
-      author: Nataliya Pyatak
-      comment: "Create departments"
-      changes:
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "1"
-              - column:
-                  name: NameDep
-                  value: "Компания Х"
-              - column:
-                  name: id_parent
-                  value: 0
-              
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "11"
-              - column:
-                  name: NameDep
-                  value: "Отдел нестандартного оборудования"
-              - column:
-                  name: id_parent
-                  value: 1
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "111"
-              - column:
-                  name: NameDep
-                  value: "Технологический отдел"
-              - column:
-                  name: id_parent
-                  value: 11
-                  
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "112"
-              - column:
-                  name: NameDep
-                  value: "Конструкторский отдел"
-              - column:
-                  name: id_parent
-                  value: 11
-                  
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "12"
-              - column:
-                  name: NameDep
-                  value: "Отдел продаж"
-              - column:
-                  name: id_parent
-                  value: 1
-                  
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "121"
-              - column:
-                  name: NameDep
-                  value: "Отдел продаж нестандартного оборудования"
-              - column:
-                  name: id_parent
-                  value: 12
-                  
-        - insert:
-            tableName: departments
-            columns:
-              - column:
-                  name: id
-                  value: "122"
-              - column:
-                  name: NameDep
-                  value: "Отдел продаж проектов"
-              - column:
-                  name: id_parent
-                  value: 12
-        
-      rollback:
-        - delete:
-            tableName: departments
-            where: Id in (1,11, 111, 112, 12, 121, 122)  
-            
-            
+            where: first_name in ('Ivan', 'Nataliya') and last_name in('Ivanov', 'Pyatak')

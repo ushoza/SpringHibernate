@@ -13,8 +13,6 @@ import ru.usharik.liquibase.demo.persist.repo.UserRepository;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
-import org.springframework.data.jpa.provider.HibernateUtils;
-import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.usharik.liquibase.demo.LiquibaseDemoApplication;
 
@@ -33,39 +31,39 @@ public class UserController {
     public List<User> allUsers() {
         return userRepository.findAll();
     }
-//    //@GetMapping("/user/tech/nextweek")
-//    @GetMapping(path = "/user/{depId}/{daysCount}")
-//    public List<User> TechUsers(@PathVariable String depId, @PathVariable int daysCount) {
-//        List<User>  allUser = userRepository.findAll();
-//        List<User> list = new ArrayList<User>(); 
-//        for (int i = 0; i < allUser.size(); i++) {
-//            User user = allUser.get(i);
-//            Date userBirtDay = user.getBirthDay();
-//            Calendar userBdThisYear = Calendar.getInstance();
-//            userBdThisYear.setTime(userBirtDay);
-//            userBdThisYear.set(Calendar.YEAR, 2019);
-//            //Calendar userBdThisYear = new GregorianCalendar(2019, userBirtDay.getMonth() , userBirtDay.getDay());
-//            Date ubdty = userBdThisYear.getTime();
-//            Calendar today = Calendar.getInstance();
-//            Date td = today.getTime();
-//            Calendar todayPSomedays = Calendar.getInstance();
-//            todayPSomedays.add(Calendar.DAY_OF_MONTH, daysCount);
-//            Date tdSome = todayPSomedays.getTime();
-//            if(ubdty.after(td) && ubdty.before(tdSome))
-//            {
-//                String dep = user.getDepartment();
-//                if(dep.equalsIgnoreCase(depId) )
-//                {
-//                   list.add(user);
-//                }
-//            }
-//                 
-//        }
-//        return list;
-//    }
-    
+    //@GetMapping("/user/tech/nextweek")
     @GetMapping(path = "/user/{depId}/{daysCount}")
-    public List<ru.usharik.liquibase.demo.persist.model.User> GetUsersByBirthDay(@PathVariable long depId, @PathVariable int daysCount) throws Exception {
+    public List<User> TechUsers(@PathVariable String depId, @PathVariable int daysCount) {
+        List<User>  allUser = userRepository.findAll();
+        List<User> list = new ArrayList<User>(); 
+        for (int i = 0; i < allUser.size(); i++) {
+            User user = allUser.get(i);
+            Date userBirtDay = user.getBirthDay();
+            Calendar userBdThisYear = Calendar.getInstance();
+            userBdThisYear.setTime(userBirtDay);
+            userBdThisYear.set(Calendar.YEAR, 2019);
+            //Calendar userBdThisYear = new GregorianCalendar(2019, userBirtDay.getMonth() , userBirtDay.getDay());
+            Date ubdty = userBdThisYear.getTime();
+            Calendar today = Calendar.getInstance();
+            Date td = today.getTime();
+            Calendar todayPSomedays = Calendar.getInstance();
+            todayPSomedays.add(Calendar.DAY_OF_MONTH, daysCount);
+            Date tdSome = todayPSomedays.getTime();
+            if(ubdty.after(td) && ubdty.before(tdSome))
+            {
+                String dep = user.getDepartment();
+                if(dep.equalsIgnoreCase(depId) )
+                {
+                   list.add(user);
+                }
+            }
+                 
+        }
+        return list;
+    }
+    
+    public List<User> GetUserByDepAndBirthday(@PathVariable String depId, @PathVariable int daysCount) throws Exception
+    {
         List<ru.usharik.liquibase.demo.persist.model.User>  list = null;
         if(LiquibaseDemoApplication.sessionFactory == null)
             LiquibaseDemoApplication.setUp();
@@ -75,11 +73,15 @@ public class UserController {
 //        NativeQuery query = session.createSQLQuery(queryStr);
 //        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
 //        
-        NativeQuery query = session.createSQLQuery(
-	"EXECUTE [TestBaseForStudy].[dbo].[rep_getUsersByDepAndBirthDay]  :idDep, :days")
-            .addEntity(User.class)
-            .setParameter("idDep", depId)
-            .setParameter("days", daysCount);
+//        NativeQuery query = session.createSQLQuery(
+//	"EXECUTE [TestBaseForStudy].[dbo].[rep_getUsersByDepAndBirthDay]  :idDep, :days")
+//            .addEntity(User.class)
+//            .setParameter("idDep", depId)
+//            .setParameter("days", daysCount);
+
+        String queryStr = "SELECT * FROM users";
+        NativeQuery query = session.createSQLQuery(queryStr);
+        query.addEntity(ru.usharik.liquibase.demo.persist.model.User.class);
         
         list = query.list();
         session.close();

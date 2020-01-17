@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.947 s - in ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 41.458 s <<< FAILURE! - in ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
+getNextWeekUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 0.438 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getNextWeekUsers(LiquibaseDemoApplicationTests.java:41)
+
+getNextMonthUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getNextMonthUsers(LiquibaseDemoApplicationTests.java:54)
+
