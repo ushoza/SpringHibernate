@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="4">
+        <insert tableName="departments">
+            <column name="id" valueNumeric="1"/>
+            <column name="id_parent" valueNumeric="0"/>
+            <column name="NameDep" value="MyCompany"/>
+            
+        </insert>
+        <insert tableName="departments">
+            <column name="id" valueNumeric="11"/>
+            <column name="id_parent" valueNumeric="1"/>
+            <column name="NameDep" value="Нестандартное оборудование"/>
+            
+        </insert>
+        <insert tableName="departments">
+            <column name="id" valueNumeric="111"/>
+            <column name="id_parent" valueNumeric="11"/>
+            <column name="NameDep" value="тех отдел"/>
+            
+        </insert>
+        <insert tableName="departments">
+            <column name="id" valueNumeric="112"/>
+            <column name="id_parent" valueNumeric="11"/>
+            <column name="NameDep" value="ко"/>
+            
+        </insert>
+        <insert tableName="departments">
+            <column name="id" valueNumeric="1121"/>
+            <column name="id_parent" valueNumeric="112"/>
+            <column name="NameDep" value="ко оснастки"/>
+            
+        </insert>
+         <insert tableName="departments">
+            <column name="id" valueNumeric="12"/>
+            <column name="id_parent" valueNumeric="1"/>
+            <column name="NameDep" value="отдел продаж"/>
+            
+        </insert>
+         <insert tableName="departments">
+            <column name="id" valueNumeric="121"/>
+            <column name="id_parent" valueNumeric="12"/>
+            <column name="NameDep" value="продажи нест оборудования"/>
+            
+        </insert>
+         <insert tableName="departments">
+            <column name="id" valueNumeric="122"/>
+            <column name="id_parent" valueNumeric="12"/>
+            <column name="NameDep" value="продажи проектов"/>
+            
+        </insert>
+        <rollback>
+            DELETE FROM users WHERE Id in (1,2);
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

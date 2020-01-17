@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="3">
+        <insert tableName="users">
+            <column name="id" valueNumeric="1"/>
+            <column name="first_name" value="Иван"/>
+            <column name="last_name" value="Иванов"/>
+            <column name="department" valueNumeric="11"/>
+            <column name="birthday" value="1995-11-12 00:00:00.000"/>
+            
+        </insert>
+        <insert tableName="users">
+            <column name="id" valueNumeric="2"/>
+            <column name="first_name" value="Петр"/>
+            <column name="last_name" value="Петров"/>
+            <column name="department" valueNumeric="111"/>
+            <column name="birthday" value="1994-01-15 00:00:00.000"/>
+            
+        </insert>
+        <rollback>
+            DELETE FROM users WHERE Id in (1,2);
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
