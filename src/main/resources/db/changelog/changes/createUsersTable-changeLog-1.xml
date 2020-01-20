@@ -8,7 +8,7 @@
 
     <changeSet author="admin" id="1">
         <createTable tableName="users">
-            <column autoIncrement="true" name="id" type="bigint" >
+            <column autoIncrement="true" name="id" type="int" >
                 <constraints primaryKey="true"/>
                 
             </column>
@@ -17,7 +17,7 @@
             </column>
             <column name="last_name" type="VARCHAR(50)"/>
             
-            <column name="department" type="bigint">
+            <column name="department" type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="birthday" type="datetime">

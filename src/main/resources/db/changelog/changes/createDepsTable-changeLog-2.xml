@@ -8,11 +8,11 @@
 
     <changeSet author="admin" id="2">
         <createTable tableName="departments">
-            <column autoIncrement="true" name="id" type="bigint" >
+            <column autoIncrement="true" name="id" type="int" >
                 <constraints primaryKey="true"/>
                 
             </column>
-            <column name="id_parent" type="bigint">
+            <column name="id_parent" type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="NameDep" type="VARCHAR(50)"/>

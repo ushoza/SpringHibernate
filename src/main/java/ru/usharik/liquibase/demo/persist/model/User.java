@@ -17,7 +17,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     
     @Column(name = "first_name")
@@ -30,16 +30,22 @@ public class User implements Serializable {
     private Date birthday;
     
     @Column(name = "department")
-    private String department;
+    private int department;
 
     public User() {
     }
-
-    public Long getId() {
+    public User(int id, String First_name, String Last_name, int dep, Date bithDay) {
+        this.id = id;
+        this.firstName= First_name;
+        this.lastName = Last_name;
+        this.department = dep;
+        this.birthday = bithDay;
+    }
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -67,12 +73,12 @@ public class User implements Serializable {
     public void setBirthDay(Date date) {
         this.birthday = date;
     }
-    public String getDepartment()
+    public long getDepartment()
     {
         return department;
     }
     
-    public void setDepartment(String dep)
+    public void setDepartment(int dep)
     {
         this.department = dep;
     }
