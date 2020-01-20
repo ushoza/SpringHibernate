@@ -1,16 +1,12 @@
 package ru.usharik.liquibase.demo;
 
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import ru.usharik.liquibase.demo.controllers.UserController;
 
 @SpringBootApplication
 
@@ -21,9 +17,7 @@ public class LiquibaseDemoApplication {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(LiquibaseDemoApplication.class, args);
         setUp();
-    
 
-//        tearDown();
     }
 
     public static void setUp() throws Exception {
@@ -47,7 +41,5 @@ public class LiquibaseDemoApplication {
         }
         
     }
-     
-
-     
+    
 }

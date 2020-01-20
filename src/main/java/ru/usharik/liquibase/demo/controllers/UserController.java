@@ -1,24 +1,18 @@
 package ru.usharik.liquibase.demo.controllers;
 
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.usharik.liquibase.demo.persist.model.User;
 import ru.usharik.liquibase.demo.persist.repo.UserRepository;
-
 import java.util.List;
-import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
-import org.hibernate.query.Query;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.usharik.liquibase.demo.LiquibaseDemoApplication;
@@ -71,7 +65,6 @@ public class UserController {
                                 ((int)row[3]),
                                 (Date) row[5]));
         }
-       //list = query.list();
        CloseSession();
        return result;
     }
