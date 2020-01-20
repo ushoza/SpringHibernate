@@ -50,38 +50,9 @@ public class UserController {
     public List<User> allUsers() {
         return userRepository.findAll();
     }
-//    @GetMapping(path = "/user/{depId}/{daysCount}")
-//    public List<User> TechUsers(@PathVariable String depId, @PathVariable int daysCount) {
-//        List<User>  allUser = userRepository.findAll();
-//        List<User> list = new ArrayList<User>(); 
-//        for (int i = 0; i < allUser.size(); i++) {
-//            User user = allUser.get(i);
-//            Date userBirtDay = user.getBirthDay();
-//            Calendar userBdThisYear = Calendar.getInstance();
-//            userBdThisYear.setTime(userBirtDay);
-//            userBdThisYear.set(Calendar.YEAR, 2019);
-//            //Calendar userBdThisYear = new GregorianCalendar(2019, userBirtDay.getMonth() , userBirtDay.getDay());
-//            Date ubdty = userBdThisYear.getTime();
-//            Calendar today = Calendar.getInstance();
-//            Date td = today.getTime();
-//            Calendar todayPSomedays = Calendar.getInstance();
-//            todayPSomedays.add(Calendar.DAY_OF_MONTH, daysCount);
-//            Date tdSome = todayPSomedays.getTime();
-//            if(ubdty.after(td) && ubdty.before(tdSome))
-//            {
-//                String dep = user.getDepartment();
-//                if(dep.equalsIgnoreCase(depId) )
-//                {
-//                   list.add(user);
-//                }
-//            }
-//                 
-//        }
-//        return list;
-//    }
-//    
+
     @GetMapping(path = "/user/{depId}/{daysCount}")
-    public List<User> GetUserByDepAndBirthday(@PathVariable int depId, @PathVariable int daysCount) throws Exception
+    public List<User> GetUserByDepAndDays(@PathVariable int depId, @PathVariable int daysCount) throws Exception
     {
         List<ru.usharik.liquibase.demo.persist.model.User>  list = null;
         OpenSession();
@@ -98,7 +69,7 @@ public class UserController {
                                 (String) row[1],
                                 (String) row[2],
                                 ((int)row[3]),
-                                (Date) row[4]));
+                                (Date) row[5]));
         }
        //list = query.list();
        CloseSession();

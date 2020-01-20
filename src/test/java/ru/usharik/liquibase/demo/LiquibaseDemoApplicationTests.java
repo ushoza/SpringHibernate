@@ -32,67 +32,68 @@ public class LiquibaseDemoApplicationTests {
     @Autowired
     private UserController userController;
     
-    @Test
-    public void addUsersTest() throws Exception {
-        Calendar calendar = new GregorianCalendar();
-        calendar.set(1996, 01, 02);
-        ru.usharik.liquibase.demo.persist.model.User user =
-                new ru.usharik.liquibase.demo.persist.model.User(3, "Иван", "Сидоров", 111, calendar.getTime());
-        userController.AddUser(user);
-        
-        Calendar calendar1 = new GregorianCalendar();
-        calendar1.set(1996, 02, 05);
-        ru.usharik.liquibase.demo.persist.model.User user1 =
-                new ru.usharik.liquibase.demo.persist.model.User(4, "Екатерина", "Иванова", 112, calendar1.getTime());
-        userController.AddUser(user1);
-        
-        Calendar calendar2 = new GregorianCalendar();
-        calendar2.set(1995, 0, 04);
-        ru.usharik.liquibase.demo.persist.model.User user2 =
-                new ru.usharik.liquibase.demo.persist.model.User(5, "Екатерина", "Иванова", 1121, calendar2.getTime());
-        userController.AddUser(user2);
-        
-        Calendar calendar3 = new GregorianCalendar();
-        calendar3.set(1996, 01, 05);
-        ru.usharik.liquibase.demo.persist.model.User user3 =
-                new ru.usharik.liquibase.demo.persist.model.User(6, "Наталья", "Костромина", 12, calendar3.getTime());
-        userController.AddUser(user3);
-        
-        Calendar calendar4 = new GregorianCalendar();
-        calendar4.set(1996, 0, 28);
-        ru.usharik.liquibase.demo.persist.model.User user4 =
-                new ru.usharik.liquibase.demo.persist.model.User(7, "Александр", "Костромин", 121, calendar4.getTime());
-        userController.AddUser(user4);
-        
-        Calendar calendar5 = new GregorianCalendar();
-        calendar5.set(1996, 0, 25);
-        ru.usharik.liquibase.demo.persist.model.User user5 =
-                new ru.usharik.liquibase.demo.persist.model.User(8, "Иван", "Беляев", 121, calendar5.getTime());
-        userController.AddUser(user5);
-        
-        Calendar calendar6 = new GregorianCalendar();
-        calendar6.set(1996, 0, 22);
-        ru.usharik.liquibase.demo.persist.model.User user6 =
-                new ru.usharik.liquibase.demo.persist.model.User(9, "Геннадий", "Деточкин", 122, calendar6.getTime());
-        userController.AddUser(user6);
-        
-        Calendar calendar7 = new GregorianCalendar();
-        calendar7.set(1996, 0, 24);
-        ru.usharik.liquibase.demo.persist.model.User user7 =
-                new ru.usharik.liquibase.demo.persist.model.User(10, "Елена", "Геннадьева", 122, calendar7.getTime());
-        userController.AddUser(user7);
-                              
-    }
-    
+
+//    @Test
+//    public void addUsersItsNotTest() throws Exception {
+//        Calendar calendar = new GregorianCalendar();
+//        calendar.set(1996, 01, 02);
+//        ru.usharik.liquibase.demo.persist.model.User user =
+//                new ru.usharik.liquibase.demo.persist.model.User(3, "Иван", "Сидоров", 111, calendar.getTime());
+//        userController.AddUser(user);
+//        
+//        Calendar calendar1 = new GregorianCalendar();
+//        calendar1.set(1996, 02, 05);
+//        ru.usharik.liquibase.demo.persist.model.User user1 =
+//                new ru.usharik.liquibase.demo.persist.model.User(4, "Екатерина", "Иванова", 112, calendar1.getTime());
+//        userController.AddUser(user1);
+//        
+//        Calendar calendar2 = new GregorianCalendar();
+//        calendar2.set(1995, 0, 04);
+//        ru.usharik.liquibase.demo.persist.model.User user2 =
+//                new ru.usharik.liquibase.demo.persist.model.User(5, "Екатерина", "Иванова", 1121, calendar2.getTime());
+//        userController.AddUser(user2);
+//        
+//        Calendar calendar3 = new GregorianCalendar();
+//        calendar3.set(1996, 01, 05);
+//        ru.usharik.liquibase.demo.persist.model.User user3 =
+//                new ru.usharik.liquibase.demo.persist.model.User(6, "Наталья", "Костромина", 12, calendar3.getTime());
+//        userController.AddUser(user3);
+//        
+//        Calendar calendar4 = new GregorianCalendar();
+//        calendar4.set(1996, 0, 28);
+//        ru.usharik.liquibase.demo.persist.model.User user4 =
+//                new ru.usharik.liquibase.demo.persist.model.User(7, "Александр", "Костромин", 121, calendar4.getTime());
+//        userController.AddUser(user4);
+//        
+//        Calendar calendar5 = new GregorianCalendar();
+//        calendar5.set(1996, 0, 25);
+//        ru.usharik.liquibase.demo.persist.model.User user5 =
+//                new ru.usharik.liquibase.demo.persist.model.User(8, "Иван", "Беляев", 121, calendar5.getTime());
+//        userController.AddUser(user5);
+//        
+//        Calendar calendar6 = new GregorianCalendar();
+//        calendar6.set(1996, 0, 22);
+//        ru.usharik.liquibase.demo.persist.model.User user6 =
+//                new ru.usharik.liquibase.demo.persist.model.User(9, "Геннадий", "Деточкин", 122, calendar6.getTime());
+//        userController.AddUser(user6);
+//        
+//        Calendar calendar7 = new GregorianCalendar();
+//        calendar7.set(1996, 0, 24);
+//        ru.usharik.liquibase.demo.persist.model.User user7 =
+//                new ru.usharik.liquibase.demo.persist.model.User(10, "Елена", "Геннадьева", 122, calendar7.getTime());
+//        userController.AddUser(user7);
+//                              
+//    }
+//    
     @Test
     public void getNextWeekUsers() throws Exception {
-         List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndBirthday(1, 7);
+         List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndDays(1, 7);
         Date dNow = new Date();
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.add(Calendar.DAY_OF_YEAR, 7);
         Date nextDate = calendar.getTime();
         boolean res = true;
-       for (int i = 0; i < actualUsers.size(); i++) {
+        for (int i = 0; i < actualUsers.size(); i++) {
             ru.usharik.liquibase.demo.persist.model.User u = (ru.usharik.liquibase.demo.persist.model.User)actualUsers.get(i);
             if(!(u.getBirthDay().after(dNow) && u.getBirthDay().before(nextDate)))
                 res = false;
@@ -103,17 +104,12 @@ public class LiquibaseDemoApplicationTests {
     
     @Test
     public void getNextMonthUsers() throws Exception {
-        List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndBirthday(1, 30);
+        List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndDays(1, 30);
         Date dNow = new Date();
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.add(Calendar.DAY_OF_YEAR, 30);
         Date nextDate = calendar.getTime();
         boolean res = true;
-//        for(ru.usharik.liquibase.demo.persist.model.User u : actualUsers) 
-//        {
-//            if(!(u.getBirthDay().after(dNow) && u.getBirthDay().before(nextDate)))
-//                res = false;
-//        }
         for (int i = 0; i < actualUsers.size(); i++) {
             ru.usharik.liquibase.demo.persist.model.User u = (ru.usharik.liquibase.demo.persist.model.User)actualUsers.get(i);
             if(!(u.getBirthDay().after(dNow) && u.getBirthDay().before(nextDate)))
@@ -122,11 +118,7 @@ public class LiquibaseDemoApplicationTests {
          Assert.assertTrue(res);
     }
     
-    @Test
-    public void getUsersByDepAndBirthDAy() throws Exception {
-        List<ru.usharik.liquibase.demo.persist.model.User> actualUsers = userController.GetUserByDepAndBirthday(11, 30);
-                              
-    }
+    
     
    
 

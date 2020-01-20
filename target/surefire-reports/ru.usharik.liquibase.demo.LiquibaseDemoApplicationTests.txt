@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 135.712 s <<< FAILURE! - in ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests
-getNextWeekUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 56.853 s  <<< FAILURE!
-java.lang.AssertionError
-	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getNextWeekUsers(LiquibaseDemoApplicationTests.java:100)
-
-getNextMonthUsers(ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests)  Time elapsed: 59.813 s  <<< FAILURE!
-java.lang.AssertionError
-	at ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests.getNextMonthUsers(LiquibaseDemoApplicationTests.java:122)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.361 s - in ru.usharik.liquibase.demo.LiquibaseDemoApplicationTests

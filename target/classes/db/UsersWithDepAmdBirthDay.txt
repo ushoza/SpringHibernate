@@ -18,7 +18,10 @@ WITH
 		first_name, 
 		last_name, 
 		department,
-                birthday 
+                birthday,
+		case when (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) < CURRENT_DATE 
+     		then (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday) +1, birthday))
+     		else (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) end as bd 
 		
 	from users where department in (SELECT id FROM cteDepsByParent)
  		and (DATEADD('YEAR', Year(CURRENT_DATE) - Year(birthday), birthday)) < DATEADD('day', @days ,CURRENT_DATE) 
