@@ -24,8 +24,37 @@
             
         </insert>
         
+        
+        
         <insert tableName="users">
             <column name="id" valueNumeric="3"/>
+            <column name="first_name" value="Иван"/>
+            <column name="last_name" value="Сидоров"/>
+            <column name="department" valueNumeric="111"/>
+            <column name="birthday" value="1994-02-02 00:00:00.000"/>
+            
+        </insert>
+        
+         <insert tableName="users">
+            <column name="id" valueNumeric="4"/>
+            <column name="first_name" value="Екатерина"/>
+            <column name="last_name" value="Иванова"/>
+            <column name="department" valueNumeric="112"/>
+            <column name="birthday" value="1994-03-05 00:00:00.000"/>
+            
+        </insert>
+        
+         <insert tableName="users">
+            <column name="id" valueNumeric="5"/>
+            <column name="first_name" value="Елена"/>
+            <column name="last_name" value="Петрова"/>
+            <column name="department" valueNumeric="1121"/>
+            <column name="birthday" value="1994-01-04 00:00:00.000"/>
+            
+        </insert>
+        
+         <insert tableName="users">
+            <column name="id" valueNumeric="6"/>
             <column name="first_name" value="Наталья"/>
             <column name="last_name" value="Костромина"/>
             <column name="department" valueNumeric="12"/>
@@ -34,15 +63,42 @@
         </insert>
         
          <insert tableName="users">
-            <column name="id" valueNumeric="4"/>
-            <column name="first_name" value="Наталья"/>
-            <column name="last_name" value="Костромина"/>
+            <column name="id" valueNumeric="7"/>
+            <column name="first_name" value="Александр"/>
+            <column name="last_name" value="Костромин"/>
             <column name="department" valueNumeric="121"/>
             <column name="birthday" value="1994-01-28 00:00:00.000"/>
             
         </insert>
+        
+        <insert tableName="users">
+            <column name="id" valueNumeric="8"/>
+            <column name="first_name" value="Иван"/>
+            <column name="last_name" value="Беляев"/>
+            <column name="department" valueNumeric="121"/>
+            <column name="birthday" value="1994-01-25 00:00:00.000"/>
+            
+        </insert>
+        
+        <insert tableName="users">
+            <column name="id" valueNumeric="9"/>
+            <column name="first_name" value="Геннадий"/>
+            <column name="last_name" value="Соколов"/>
+            <column name="department" valueNumeric="122"/>
+            <column name="birthday" value="1994-01-20 00:00:00.000"/>
+            
+        </insert>
+        
+         <insert tableName="users">
+            <column name="id" valueNumeric="10"/>
+            <column name="first_name" value="Елена"/>
+            <column name="last_name" value="Соколова"/>
+            <column name="department" valueNumeric="122"/>
+            <column name="birthday" value="1994-01-24 00:00:00.000"/>
+            
+        </insert>
         <rollback>
-            DELETE FROM users WHERE Id in (1,2,3,4);
+            DELETE FROM users WHERE Id in (1,2,3,4,5,6,7,8,9,10);
         </rollback>
     </changeSet>
 </databaseChangeLog>
